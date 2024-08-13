@@ -14,7 +14,7 @@ Chuck Reynolds is a seasoned web developer with over <b>eight years</b> of hands
 
 His latest projects include a mobile app enhancing the mobile event touring experience, a web-based platform to streamline venue operations, and a bespoke platform for conference organization.
 
-Currently, he works with technologies such as: <ul><li><b>Typescript</b></li> <li><b>React</b></li> <li><b>React Native</b></li> <li><b>Expo</b></li> <li><b>Electron</b></li> <li><b>Next.js</b></li> <li><b>Tailwind CSS</b></li> <li><b>Redux</b></li> <li><b>Jest - Cypress - RTL</b></li> <li><b>MySQL</b></li> <li><b>PostgreSQL</b></li> <li><b>Python</b></li> <li><b>AWS</b></li> <li><b>Bitbucket - Jira - Atlassian</b></li> <li>and more...</li></ul>
+Currently, he works with technologies such as: <ul><li><b>Typescript</b></li> <li><b>React</b></li> <li><b>React Native</b></li> <li><b>Expo</b></li> <li><b>Electron</b></li> <li><b>Next.js</b></li> <li><b>Tailwind CSS</b></li> <li><b>Redux</b></li> <li><b>Jest - Cypress - RTL</b></li> <li><b>MySQL</b></li> <li><b>PostgreSQL</b></li> <li><b>Python</b></li> <li><b>AWS</b></li> <li><b>Github</b></li> <li><b>Bitbucket - Jira - Atlassian</b></li> <li>and more...</li></ul>
 
 > The journey of a thousand miles begins with one step.
 
