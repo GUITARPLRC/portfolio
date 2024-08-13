@@ -79,7 +79,7 @@ const siteConfig: SiteConfig = {
         }
     ],
     hero: {
-        title: 'Hi there!!',
+        title: 'Hi there!',
         text: "My name is Chuck Reynolds. I'm a freelance front-end developer, author and musician based in Chicago, Il. It's nice to meet you.",
         avatar: {
             src: '/avatar.jpg',
