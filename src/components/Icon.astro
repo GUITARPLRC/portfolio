@@ -1,0 +1,21 @@
+---
+import ArrowLeft from '../icons/ArrowLeft.astro';
+import ArrowRight from '../icons/ArrowRight.astro';
+import Dev from '../icons/Dev.astro';
+import GitHub from '../icons/GitHub.astro';
+import LinkedIn from '../icons/LinkedIn.astro';
+
+const iconMap: { [key: string]: any } = {
+    'arrow-left': ArrowLeft,
+    'arrow-right': ArrowRight,
+    dev: Dev,
+    github: GitHub,
+    linkedin: LinkedIn,
+};
+
+const { icon, class: className } = Astro.props;
+
+const IconComponent = icon ? iconMap[icon] : null;
+---
+
+{IconComponent && <IconComponent class={className} />}
