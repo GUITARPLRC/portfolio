@@ -11,14 +11,13 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout your repository using git
-        uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v3
         
-      - name: Install deps
-        uses: withastro/action@v2
-
-      - name: Build the project
-        run: npm run build
+      - name: setup
+        run: | 
+          npm install
+          npm run build
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
