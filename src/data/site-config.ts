@@ -80,7 +80,7 @@ const siteConfig: SiteConfig = {
     ],
     hero: {
         title: 'Hi there!',
-        text: "My name is Chuck Reynolds. I'm a freelance front-end developer, author and musician based in Chicago, Il. It's nice to meet you.",
+        text: "My name is Chuck Reynolds. I'm a freelance web developer, author and musician based in Chicago, Il. It's nice to meet you.",
         avatar: {
             src: '/avatar.jpg',
             alt: 'Chuck Reynolds'
