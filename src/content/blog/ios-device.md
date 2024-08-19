@@ -1,15 +1,15 @@
 ---
 id: 03
-title: 'How to find your iOS device from command line'
+title: "How to find your iOS device from command line"
 excerpt: "Finding your iOS device from the command line is a useful skill to have. Whether you're a developer or a power user, knowing how to locate your device can be handy in various scenarios. In this blog post, we'll explore different methods to find your iOS device using the command line, from checking connected devices to retrieving detailed information. Let's dive in and uncover the secrets of iOS device discovery!"
-publishDate: 'August 11 2024'
+publishDate: "August 11 2024"
 featureImage:
-  src: '/post-1.webp'
+  src: "/post-1.webp"
   alt: Computer screen showing code
   caption: Hacking the planet
 seo:
   image:
-    src: '/post-1.jpg'
+    src: "/post-1.jpg"
 ---
 
 As an React Native developer, you might find yourself in situations where you need to locate your iOS device. Whether you're debugging an app, or managing multiple devices, knowing how to find your iOS device can be a valuable skill. In this post, I will show you how to find your iOS device from the command line using various methods. Let's dive in!
@@ -18,7 +18,7 @@ As an React Native developer, you might find yourself in situations where you ne
 
 To get a list of all connected iOS devices, you can use the following command:
 
-```
+```bash
 xcrun simctl list devices
 ```
 
@@ -28,7 +28,7 @@ This command uses `xcrun simctl`, a command-line tool that interacts with the iO
 
 If you want to identify the booted device, you can filter the list to show only booted devices. With a little command line-fu, you can achieve this using the following command:
 
-```
+```bash
 xcrun simctl list devices | grep -e "(Booted)" -A 1
 ```
 

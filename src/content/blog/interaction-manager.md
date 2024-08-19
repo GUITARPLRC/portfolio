@@ -1,15 +1,15 @@
 ---
 id: 02
-title: 'Interaction Run after Animation'
-excerpt: 'InteractionManager is a utility within React Native that allows long-running work to be scheduled after any interactions/animations have completed. This is particularly useful for ensuring smooth animations and interactions on the screen without being blocked by tasks that can wait.'
-publishDate: 'July 19 2024'
+title: "Interaction Run after Animation"
+excerpt: "InteractionManager is a utility within React Native that allows long-running work to be scheduled after any interactions/animations have completed. This is particularly useful for ensuring smooth animations and interactions on the screen without being blocked by tasks that can wait."
+publishDate: "July 19 2024"
 featureImage:
-  src: '/post-2.webp'
+  src: "/post-2.webp"
   alt: Sitting on a full bus
   caption: Waiting for next stop
 seo:
   image:
-    src: '/post-2.jpg'
+    src: "/post-2.jpg"
 ---
 
 Animations are a powerful tool in React Native for creating engaging and interactive user interfaces. They can enhance the user experience by providing visual feedback and guiding users through the app. But have you ever encountered a situation where an action you wanted to perform after an animation finished, ended up happening before the animation even completed? This can lead to a disjointed user experience, where the UI updates don't seem to align with the animation. In this blog post, we'll explore how to tackle this challenge and ensure a smooth flow between animations and subsequent interactions in your React Native apps.
@@ -20,7 +20,7 @@ Let's imagine we have a button that animates its scale to indicate a loading sta
 
 Here's where the problem arises:
 
-```
+```javascript
 const MyButton = () => {
 	const [isLoading, setIsLoading] = useState(false)
 
@@ -49,27 +49,27 @@ To ensure actions are executed only after the animation finishes, we can leverag
 
 Here's how we can modify the previous example to use `InteractionManager`:
 
-```
+```javascript
 const MyButton = () => {
-  const [isLoading, setIsLoading] = useState(false);
+	const [isLoading, setIsLoading] = useState(false)
 
-  const handleButtonClick = () => {
-    setIsLoading(true); // Set loading state
+	const handleButtonClick = () => {
+		setIsLoading(true) // Set loading state
 
-    // Animate button scale
-    Animated.spring(animatedScale, {
-      toValue: 1.2,
-      useNativeDriver: true, // (Optional) improve performance for simple animations
-    }).start();
+		// Animate button scale
+		Animated.spring(animatedScale, {
+			toValue: 1.2,
+			useNativeDriver: true, // (Optional) improve performance for simple animations
+		}).start()
 
-    // Schedule update for after animation finishes
-    InteractionManager.runAfterInteractions(() => {
-      setIsLoading(false); // Update button text (correct timing)
-    });
-  };
+		// Schedule update for after animation finishes
+		InteractionManager.runAfterInteractions(() => {
+			setIsLoading(false) // Update button text (correct timing)
+		})
+	}
 
-  // ... (render button with animated scale and conditional text based on isLoading)
-};
+	// ... (render button with animated scale and conditional text based on isLoading)
+}
 ```
 
 By wrapping the `setIsLoading(false)` call within `InteractionManager.runAfterInteractions()`, we ensure it's queued to execute only after all current interactions, including the animation, are finished. This guarantees a smooth user experience where the button text updates in sync with the animation completion.
