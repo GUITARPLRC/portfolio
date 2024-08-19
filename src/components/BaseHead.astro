@@ -48,7 +48,6 @@ function formatCanonicalURL(url: string | URL) {
 <!-- Low Priority Global Metadata -->
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="sitemap" href="/sitemap-index.xml" />
-<link rel="alternate" type="application/rss+xml" href="/rss.xml" title="RSS" />
 
 <!-- Page Metadata -->
 <link rel="canonical" href={formatCanonicalURL(canonicalURL)} />
@@ -69,3 +68,7 @@ function formatCanonicalURL(url: string | URL) {
 <meta property="twitter:description" content={description} />
 {resolvedImage?.src && <meta property="twitter:image" content={resolvedImage.src} />}
 {resolvedImage?.alt && <meta name="twitter:image:alt" content={resolvedImage?.alt} />}
+
+
+<!-- RSS Feed -->
+<link rel="alternate" type="application/rss+xml" title="Chuck's Blog - RSS" href={new URL("rss.xml", Astro.site)} />

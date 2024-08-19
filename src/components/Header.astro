@@ -1,6 +1,7 @@
 ---
 import HeaderNavLink from './HeaderNavLink.astro';
 import siteConfig from '../data/site-config.ts';
+import RSS from '../icons/RSS.astro';
 
 const primaryNavLinks = siteConfig.primaryNavLinks || [];
 
@@ -37,7 +38,7 @@ const { class: className } = Astro.props;
                                 class="block pr-6 py-1 text-lg text-slate-700 font-bold sm:text-xl relative transition duration-300 hover:text-slate-500"
                                 href={link.href}
                             >
-                                {link.text}
+                                {link.text === "RSS" ? <RSS /> : link.text}
                             </HeaderNavLink>
                         </li>
                     ))}
