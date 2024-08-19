@@ -1,15 +1,8 @@
 ---
 id: 01
-title: 'Conquering Text Wrap with the CSS Hyphens Property'
-excerpt: 'Ever frustrated by unsightly text wrap on your webpages? The CSS hyphens property can be your hero! It grants control over how words break across lines, ensuring a polished and reader-friendly experience. Dive in with this blog post to explore its potential and conquer those text wrap woes!'
-publishDate: 'June 5 2024'
-featureImage:
-  src: '/post-3.webp'
-  alt: Hands flat on table touching side by side
-  caption: Splitting words
-seo:
-  image:
-    src: '/post-3.jpg'
+title: "Conquering Text Wrap with the CSS Hyphens Property"
+excerpt: "Ever frustrated by unsightly text wrap on your webpages? The CSS hyphens property can be your hero! It grants control over how words break across lines, ensuring a polished and reader-friendly experience. Dive in with this blog post to explore its potential and conquer those text wrap woes!"
+publishDate: "June 5 2024"
 ---
 
 Have you ever encountered a webpage where long words create awkward line breaks, disrupting your reading flow? Text wrapping in web design can be a double-edged sword. While essential for responsive layouts, it can sometimes lead to uneven spacing and strange hyphenation, making your content look messy.

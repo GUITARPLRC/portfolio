@@ -3,13 +3,6 @@ id: 02
 title: "Interaction Run after Animation"
 excerpt: "InteractionManager is a utility within React Native that allows long-running work to be scheduled after any interactions/animations have completed. This is particularly useful for ensuring smooth animations and interactions on the screen without being blocked by tasks that can wait."
 publishDate: "July 19 2024"
-featureImage:
-  src: "/post-2.webp"
-  alt: Sitting on a full bus
-  caption: Waiting for next stop
-seo:
-  image:
-    src: "/post-2.jpg"
 ---
 
 Animations are a powerful tool in React Native for creating engaging and interactive user interfaces. They can enhance the user experience by providing visual feedback and guiding users through the app. But have you ever encountered a situation where an action you wanted to perform after an animation finished, ended up happening before the animation even completed? This can lead to a disjointed user experience, where the UI updates don't seem to align with the animation. In this blog post, we'll explore how to tackle this challenge and ensure a smooth flow between animations and subsequent interactions in your React Native apps.

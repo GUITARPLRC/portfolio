@@ -3,13 +3,6 @@ id: 04
 title: "Creating an RSS Feed with Astro.js"
 excerpt: "Creating an RSS feed with Astro is easy. You just need to create a new file in your Astro project that contains the feed data. You can then use Astro's built-in feed function to generate the feed."
 publishDate: "August 19 2024"
-featureImage:
-  src: "/post-4.webp"
-  alt: Navigation on a tablet
-  caption: Checking the latest news
-seo:
-  image:
-    src: "/post-4.jpg"
 ---
 
 ## What is an RSS feed?
