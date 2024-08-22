@@ -1,20 +1,20 @@
 ---
 title: About
 featureImage:
-  src: '/about.webp'
+  src: "/about.webp"
   alt: The portrait of a person
 seo:
   title: About
   description: About Chuck Reynolds
   image:
-    src: '/about.jpg'
+    src: "/about.jpg"
 ---
 
 Chuck Reynolds is a seasoned web developer with over <b>eight years</b> of hands-on experience crafting digital solutions. Based in Chicago, he has honed his skills through self-directed learning and a diverse portfolio of projects, ranging from agile startups to established enterprises. With a proven ability to <b>contribute high-quality code</b>, <b>manage cross-functional teams</b>, and to <b>craft exceptional software experiences</b>, Chuck excels at breaking down complex challenges and developing innovative solutions when needed.
 
-His latest projects include a mobile app enhancing the mobile event touring experience, a web-based platform to streamline venue operations, and a bespoke platform for conference organization.
+His latest projects include a mobile app enhancing the event touring experience, a web-based platform to streamline venue operations, and a bespoke platform for conference organization.
 
-Currently, he works with technologies such as: <ul><li><b>Typescript</b></li> <li><b>React</b></li> <li><b>React Native</b></li> <li><b>Expo</b></li> <li><b>Electron</b></li> <li><b>Next.js</b></li> <li><b>Tailwind CSS</b></li> <li><b>Redux</b></li> <li><b>Jest - Cypress - RTL</b></li> <li><b>MySQL</b></li> <li><b>PostgreSQL</b></li> <li><b>Python</b></li> <li><b>AWS</b></li> <li><b>Github</b></li> <li><b>Bitbucket - Jira - Atlassian</b></li> <li>and more...</li></ul>
+Currently, he works with technologies such as: <ul><li><b>JavaScript - TypeScript</b></li> <li><b>React</b></li> <li><b>React Native</b></li> <li><b>Python</b></li> <li><b>Expo</b></li> <li><b>Electron</b></li> <li><b>Next.js - Astro.js</b></li> <li><b>Redux - WatermelonDB</b></li> <li><b>Tailwind CSS - Material UI</b></li> <li><b>Jest - Cypress - RTL</b></li> <li><b>MySQL - NoSQL</b></li> <li><b>AWS</b></li> <li><b>Github</b></li> <li><b>Bitbucket - Jira - Atlassian</b></li> <li><b>Leadership and Team Management</b></li></ul>
 
 > The journey of a thousand miles begins with one step.
 
