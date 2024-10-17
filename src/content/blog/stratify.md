@@ -7,7 +7,7 @@ publishDate: "October 18 2024"
 
 Ever found yourself overwhelmed by the sheer number of lists you need to keep track of? Whether it's a grocery list, a to-do list, or a bucket list, managing multiple lists can be a daunting task. That's where Stratify comes in.
 
-# The Birth of Stratify
+## The Birth of Stratify
 
 I created Stratify out of personal necessity. As a food enthusiast and avid traveler, I found myself constantly juggling various lists, from new restaurants to try to must-see destinations. I needed a tool that could not only help me organize my lists but also provide me with insights and prioritize tasks.
 
