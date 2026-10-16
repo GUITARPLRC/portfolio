@@ -33,7 +33,7 @@ if (seo?.image?.src) {
             </header>
             {
                 featureImage?.src && (
-                    <figure class="mx-auto mb-9">
+                    <figure class="max-w-2xl mx-auto mb-9">
                         <img src={featureImage.src} loading="lazy" decoding="async" alt={featureImage.alt || ''} class="w-full rounded-md" />
                         {featureImage.caption && <figcaption class="text-xs mt-1.5">{featureImage.caption}</figcaption>}
                     </figure>

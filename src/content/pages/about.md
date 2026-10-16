@@ -10,11 +10,11 @@ seo:
     src: "/about.jpg"
 ---
 
-Chuck Reynolds is a seasoned web developer with over <b>eight years</b> of hands-on experience crafting digital solutions. Based in Chicago, he has honed his skills through self-directed learning and a diverse portfolio of projects, ranging from agile startups to established enterprises. With a proven ability to <b>contribute high-quality code</b>, <b>manage cross-functional teams</b>, and to <b>craft exceptional software experiences</b>, Chuck excels at breaking down complex challenges and developing innovative solutions when needed.
+Chuck Reynolds is a seasoned web developer with over <b>ten years</b> of hands-on experience crafting digital solutions. Based in Chicago, he has honed his skills through self-directed learning and a diverse portfolio of projects, ranging from agile startups to established enterprises. With a proven ability to <b>contribute high-quality code</b>, <b>manage cross-functional teams</b>, and to <b>craft exceptional software experiences</b>, Chuck excels at breaking down complex challenges and developing innovative solutions when needed.
 
-His latest projects include a mobile app enhancing the event touring experience, a web-based platform to streamline venue operations, and a bespoke platform for conference organization.
+His latest projects include a mobile and web app to help people find new friends, a mobile app enhancing the event touring experience, a web-based platform to streamline venue operations, and a bespoke platform for conference organization.
 
-Currently, he works with technologies such as: <ul><li><b>JavaScript - TypeScript</b></li> <li><b>React</b></li> <li><b>React Native</b></li> <li><b>Python</b></li> <li><b>Expo</b></li> <li><b>Electron</b></li> <li><b>Next.js - Astro.js</b></li> <li><b>Redux - WatermelonDB</b></li> <li><b>Tailwind CSS - Material UI</b></li> <li><b>Jest - Cypress - RTL</b></li> <li><b>MySQL - NoSQL</b></li> <li><b>AWS</b></li> <li><b>Github</b></li> <li><b>Bitbucket - Jira - Atlassian</b></li> <li><b>Leadership and Team Management</b></li></ul>
+Currently, he works with technologies such as: <ul><li><b>JavaScript - TypeScript</b></li> <li><b>React</b></li> <li><b>React Native</b></li> <li><b>Expo</b></li> <li><b>Electron</b></li> <li><b>Kotlin</b></li> <li><b>Next.js - Astro.js - Tanstack</b></li> <li><b>Redux - WatermelonDB</b></li> <li><b>Tailwind CSS - Material UI - Bootstrap</b></li> <li><b>Maestro - Jest - Cypress - RTL</b></li> <li><b>MySQL - NoSQL - Postgres</b></li> <li><b>AWS</b></li> <li><b>Github</b></li> <li><b>Linear - Bitbucket - Jira - Atlassian</b></li></ul>
 
 > The journey of a thousand miles begins with one step.
 
