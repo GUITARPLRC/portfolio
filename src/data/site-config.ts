@@ -34,7 +34,7 @@ export type SiteConfig = {
 const siteConfig: SiteConfig = {
 	logo: {
 		src: "/logo.svg",
-		alt: "My logo",
+		alt: "Chuck Reynolds – home",
 	},
 	title: "Chuck Reynolds",
 	description:
