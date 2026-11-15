@@ -1,17 +1,10 @@
 import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
-import tailwind from '@astrojs/tailwind';
 
 // https://astro.build/config
+// Tailwind is applied through PostCSS (see postcss.config.cjs).
 export default defineConfig({
     site: 'https://chuckreynolds.dev',
-    integrations: [
-        mdx(),
-        sitemap(),
-        tailwind({
-            // Disable injecting a basic `base.css` import on every page.
-            applyBaseStyles: false
-        })
-    ]
+    integrations: [mdx(), sitemap()]
 });
