@@ -2,12 +2,13 @@
 title: About
 featureImage:
   src: "/about.webp"
-  alt: The portrait of a person
+  alt: Portrait of Chuck Reynolds
 seo:
   title: About
   description: About Chuck Reynolds
   image:
     src: "/about.jpg"
+    alt: Portrait of Chuck Reynolds
 ---
 
 Chuck Reynolds is a seasoned web developer with over <b>ten years</b> of hands-on experience crafting digital solutions. Based in Chicago, he has honed his skills through self-directed learning and a diverse portfolio of projects, ranging from agile startups to established enterprises. With a proven ability to <b>contribute high-quality code</b>, <b>manage cross-functional teams</b>, and to <b>craft exceptional software experiences</b>, Chuck excels at breaking down complex challenges and developing innovative solutions when needed.
