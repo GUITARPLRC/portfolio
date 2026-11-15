@@ -24,7 +24,7 @@ export async function GET(context) {
 				// content: sanitizeHtml(parser.render(post.body), {
 				// 	allowedTags: sanitizeHtml.defaults.allowedTags.concat(["img"]),
 				// }),
-				link: `/blog/${post.slug}/`,
+				link: `/blog/${post.id}/`,
 				...post.data,
 			}))
 			.sort((a, b) => new Date(b.publishDate) - new Date(a.publishDate)),
