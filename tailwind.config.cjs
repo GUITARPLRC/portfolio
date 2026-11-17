@@ -1,7 +1,6 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = {
-    content: ['./src/**/*.{astro,html,js,jsx,md,mdx,ts,tsx}'],
     theme: {
         extend: {
             boxShadow: {
@@ -9,7 +8,7 @@ module.exports = {
                 avatar: '0 0 1px 11px rgb(var(--color-primary) / 0.15), 0 0 1px 22px rgb(var(--color-primary) / 0.10)'
             },
             colors: {
-                primary: 'rgb(var(--color-primary) / <alpha-value>)'
+                primary: 'rgb(var(--color-primary))'
             },
             fontFamily: {
                 sans: ['Overpass', ...defaultTheme.fontFamily.sans]
@@ -48,15 +47,15 @@ module.exports = {
                                 margin: '30px auto 0',
                                 width: '1.875rem'
                             },
-                            '@media (min-width: theme("screens.sm"))': {
+                            '@media (min-width: 640px)': {
                                 fontSize: '1.66667em',
                                 lineHeight: 1.3
                             },
-                            '@media (min-width: theme("screens.lg"))': {
+                            '@media (min-width: 1024px)': {
                                 marginLeft: '-6rem',
                                 marginRight: '-6rem'
                             },
-                            '@media (min-width: theme("screens.xl"))': {
+                            '@media (min-width: 1280px)': {
                                 marginLeft: '-10rem',
                                 marginRight: '-10rem'
                             }
