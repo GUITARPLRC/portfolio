@@ -37,6 +37,39 @@ function formatCanonicalURL(url: string | URL) {
 <!-- High Priority Global Metadata -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
+<script is:inline>
+    (function () {
+        var KEY = 'theme';
+        var mq = window.matchMedia('(prefers-color-scheme: dark)');
+        function saved() {
+            try {
+                var s = localStorage.getItem(KEY);
+                return s === 'light' || s === 'dark' ? s : null;
+            } catch (e) {
+                return null;
+            }
+        }
+        function resolve() {
+            return saved() || (mq.matches ? 'dark' : 'light');
+        }
+        function apply(doc) {
+            doc.documentElement.setAttribute('data-theme', resolve());
+        }
+        apply(document);
+        if (window.__themeInit) return;
+        window.__themeInit = true;
+        // ClientRouter copies <html> attributes from the incoming page; set the theme there first.
+        document.addEventListener('astro:before-swap', function (e) {
+            apply(e.newDocument);
+        });
+        document.addEventListener('astro:after-swap', function () {
+            apply(document);
+        });
+        mq.addEventListener('change', function () {
+            if (!saved()) apply(document);
+        });
+    })();
+</script>
 <title>{title}</title>
 <meta name="generator" content={Astro.generator} />
 

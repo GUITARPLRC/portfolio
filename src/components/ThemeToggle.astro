@@ -1,0 +1,53 @@
+<button
+    type="button"
+    class="theme-toggle w-10 h-10 inline-flex items-center justify-center border border-ink text-ink transition-colors duration-200 hover:bg-ink/5"
+    aria-label="Toggle dark mode"
+    aria-pressed="false"
+>
+    <svg
+        class="w-5 h-5 dark:hidden"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"
+    >
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+    </svg>
+    <svg
+        class="w-5 h-5 hidden dark:block"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"
+    >
+        <circle cx="12" cy="12" r="4"></circle>
+        <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path>
+    </svg>
+</button>
+
+<script>
+    function initThemeToggle() {
+        document.querySelectorAll<HTMLButtonElement>('.theme-toggle').forEach((btn) => {
+            const sync = () => btn.setAttribute('aria-pressed', String(document.documentElement.dataset.theme === 'dark'));
+            sync();
+            btn.addEventListener('click', () => {
+                const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+                document.documentElement.dataset.theme = next;
+                try {
+                    localStorage.setItem('theme', next);
+                } catch {}
+                sync();
+            });
+        });
+    }
+    initThemeToggle();
+    document.addEventListener('astro:after-swap', initThemeToggle);
+</script>

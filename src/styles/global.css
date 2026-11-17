@@ -1,8 +1,11 @@
 @import "tailwindcss";
 @config "../../tailwind.config.cjs";
 
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
 @layer base {
     :root {
+        color-scheme: light;
         --color-paper: 250 247 242; /* #faf7f2 warm paper */
         --color-ink: 31 27 22; /* #1f1b16 */
         --color-muted: 107 98 88; /* #6b6258 */
@@ -11,8 +14,21 @@
         --color-primary: var(--color-accent);
     }
 
+    :root[data-theme="dark"] {
+        color-scheme: dark;
+        --color-paper: 23 20 17; /* #171411 */
+        --color-ink: 237 230 218; /* #ede6da */
+        --color-muted: 163 154 142; /* #a39a8e */
+        --color-rule: 58 51 43; /* #3a332b */
+        --color-accent: 217 134 122; /* #d9867a */
+    }
+
     ::selection {
         background-color: rgb(var(--color-accent) / 0.15);
+    }
+
+    [data-theme="dark"] ::selection {
+        background-color: rgb(var(--color-accent) / 0.3);
     }
 
     :focus-visible {
