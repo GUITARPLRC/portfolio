@@ -35,13 +35,13 @@ if (seo?.image?.src) {
 <BaseLayout title={seo?.title ?? title} description={seo?.description ?? excerpt} image={socialImage} pageType="article">
     <main class="grow px-4 py-12 sm:px-8 sm:py-16">
         <article class="max-w-6xl mx-auto mb-12 sm:mb-16">
-            <header class="max-w-3xl mx-auto mb-6 sm:mb-8">
-                <div class="mb-3 text-sm uppercase tracking-wider text-slate-500">
+            <header class="max-w-3xl mx-auto mb-8 sm:mb-10">
+                <div class="mb-4 text-base italic text-muted">
                     {
                         isFeatured && (
                             <>
-                                <span class="text-primary">Featured</span>
-                                {' / '}
+                                <span class="text-accent">Featured</span>
+                                {' · '}
                             </>
                         )
                     }
@@ -57,31 +57,36 @@ if (seo?.image?.src) {
                         )
                     }
                 </div>
-                <h1 class="text-3xl font-bold text-slate-900 sm:text-4xl md:text-5xl" style={{viewTransitionName: publishDate.toISOString()}}>{title}</h1>
+                <h1
+                    class="font-display text-4xl font-medium leading-[1.05] tracking-tight text-ink sm:text-5xl md:text-6xl"
+                    style={{viewTransitionName: publishDate.toISOString()}}
+                >
+                    {title}
+                </h1>
             </header>
             {
                 featureImage?.src && (
-                    <figure class="mx-auto my-6 sm:my-8 lg:my-12">
-                        <img class="w-full rounded-lg" src={featureImage.src} loading="lazy" decoding="async" alt={featureImage.alt || ''} />
-                        {featureImage.caption && <figcaption class="mt-1.5 text-xs sm:text-sm">{featureImage.caption}</figcaption>}
+                    <figure class="max-w-5xl mx-auto my-8 sm:my-10 lg:my-12">
+                        <img class="w-full" src={featureImage.src} loading="lazy" decoding="async" alt={featureImage.alt || ''} />
+                        {featureImage.caption && <figcaption class="mt-2 text-sm italic text-muted">{featureImage.caption}</figcaption>}
                     </figure>
                 )
             }
             <div class="max-w-3xl mx-auto">
-                <div class="prose prose-slate sm:prose-lg max-w-none">
+                <div class="prose sm:prose-lg max-w-none">
                     <Content />
                 </div>
-                <div class="mt-8 flex flex-wrap gap-x-3 text-sm sm:mt-12 sm:text-base">
-                    <span class="font-semibold">Share:</span>
+                <div class="mt-10 pt-6 flex flex-wrap gap-x-4 border-t border-rule sm:mt-14">
+                    <span class="italic text-muted">Share:</span>
                     <a
-                        class="text-primary transition duration-300 hover:text-slate-700"
+                        class="text-accent underline decoration-1 underline-offset-4 transition-colors duration-200 hover:text-ink"
                         href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(href)}&text=${encodeURIComponent(title)}`}
                         target="_blank"
                         rel="noopener noreferer"
                         aria-label="Share on X">X/Twitter</a
                     >
                     <a
-                        class="text-primary transition duration-300 hover:text-slate-700"
+                        class="text-accent underline decoration-1 underline-offset-4 transition-colors duration-200 hover:text-ink"
                         href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(href)}&summary=${encodeURIComponent(title)}`}
                         target="_blank"
                         rel="noopener noreferer"
@@ -93,7 +98,7 @@ if (seo?.image?.src) {
         {
             (prevPost || nextPost) && (
                 <div class="max-w-3xl mx-auto mb-12 sm:mb-16">
-                    <h2 class="mb-8 text-sm uppercase tracking-wider text-slate-900 after:content-[''] after:block after:w-16 after:h-px after:bg-primary after:mt-4 sm:mb-12">
+                    <h2 class="mb-8 pb-3 border-b border-ink font-display text-2xl font-medium italic text-ink sm:mb-10">
                         Read Next
                     </h2>
                     {nextPost && <ReadNextPostPreview post={nextPost} />}

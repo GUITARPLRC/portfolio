@@ -6,9 +6,9 @@ const { post } = Astro.props as { post: CollectionEntry<'blog'> };
 const { title, publishDate, updatedDate, featureImage } = post.data;
 ---
 
-<article class="mb-12 flex flex-col gap-x-8 gap-y-6 sm:flex-row">
+<article class="py-8 flex flex-col gap-x-8 gap-y-5 border-t border-rule first-of-type:border-t-0 first-of-type:pt-0 sm:flex-row">
     <header class="grow">
-        <div class="mb-2 text-sm uppercase tracking-wider text-slate-500">
+        <div class="mb-2 text-base italic text-muted">
             <FormattedDate date={publishDate} />
             {
                 updatedDate && (
@@ -21,15 +21,15 @@ const { title, publishDate, updatedDate, featureImage } = post.data;
                 )
             }
         </div>
-        <h3 class="text-2xl font-bold text-slate-900" style={{viewTransitionName: publishDate.toISOString()}}>
-            <a href={`/blog/${post.id}/`}>{title}</a>
+        <h3 class="font-display text-2xl font-medium leading-snug text-ink sm:text-3xl" style={{viewTransitionName: publishDate.toISOString()}}>
+            <a class="transition-colors duration-200 hover:text-accent" href={`/blog/${post.id}/`}>{title}</a>
         </h3>
     </header>
     {
         featureImage?.src && (
             <figure class="shrink-0 sm:w-40">
                 <a href={`/blog/${post.id}/`}>
-                    <img class="w-full rounded-md" src={featureImage.src} loading="lazy" decoding="async" alt={featureImage.alt || ''} />
+                    <img class="w-full" src={featureImage.src} loading="lazy" decoding="async" alt={featureImage.alt || ''} />
                 </a>
             </figure>
         )

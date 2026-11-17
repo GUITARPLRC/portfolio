@@ -28,19 +28,19 @@ if (seo?.image?.src) {
 <BaseLayout title={seo?.title ?? title} description={seo?.description} image={socialImage}>
     <main class="grow px-4 py-12 sm:px-8 sm:py-16">
         <article class="max-w-6xl mx-auto">
-            <header class="max-w-3xl mx-auto mb-9">
-                <h1 class="text-slate-900 text-4xl sm:text-5xl font-bold">{title}</h1>
+            <header class="max-w-3xl mx-auto mb-10 pb-6 border-b border-rule">
+                <h1 class="font-display text-5xl font-medium leading-[1.05] tracking-tight text-ink sm:text-6xl">{title}</h1>
             </header>
             {
                 featureImage?.src && (
-                    <figure class="max-w-2xl mx-auto mb-9">
-                        <img src={featureImage.src} loading="lazy" decoding="async" alt={featureImage.alt || ''} class="w-full rounded-md" />
-                        {featureImage.caption && <figcaption class="text-xs mt-1.5">{featureImage.caption}</figcaption>}
+                    <figure class="max-w-2xl mx-auto mb-10">
+                        <img src={featureImage.src} loading="lazy" decoding="async" alt={featureImage.alt || ''} class="w-full" />
+                        {featureImage.caption && <figcaption class="mt-2 text-sm italic text-muted">{featureImage.caption}</figcaption>}
                     </figure>
                 )
             }
             <div class="max-w-3xl mx-auto">
-                <div class="prose prose-slate sm:prose-lg max-w-none">
+                <div class="prose sm:prose-lg max-w-none">
                     <Content />
                 </div>
             </div>

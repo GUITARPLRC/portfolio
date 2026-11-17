@@ -10,27 +10,44 @@ const socialLinks = siteConfig.socialLinks || [];
     (hero?.title || hero?.text || hero?.avatar?.src) && (
         <>
             {hero?.backgroundImage?.src && (
-                <div class="absolute inset-0 bg-cover bg-center opacity-30" style={{ backgroundImage: `url(${hero?.backgroundImage?.src})` }} />
+                <div
+                    class="absolute inset-0 bg-cover bg-center opacity-10 grayscale mix-blend-multiply"
+                    style={{ backgroundImage: `url(${hero?.backgroundImage?.src})` }}
+                />
             )}
-            <section class="px-4 py-12 relative sm:px-8 sm:py-16">
+            <section class="px-4 pt-12 pb-16 relative sm:px-8 sm:pt-16 sm:pb-24">
                 <div class="w-full max-w-3xl mx-auto flex flex-col items-center text-center">
                     {hero?.avatar?.src && (
-                        <div class="p-6">
-                            <img
-                                src={hero?.avatar?.src}
-                                alt={hero?.avatar?.alt || ''}
-                                class="w-32 aspect-square object-cover rounded-full border-2 border-primary shadow-avatar"
-                            />
-                        </div>
+                        <img
+                            src={hero?.avatar?.src}
+                            alt={hero?.avatar?.alt || ''}
+                            class="w-28 aspect-square object-cover rounded-full ring-1 ring-ink/15 ring-offset-4 ring-offset-paper"
+                        />
                     )}
-                    {hero?.title && <h1 class:list={['text-4xl font-bold text-slate-900 sm:text-5xl', { 'mt-6': hero?.avatar?.src }]}>{hero?.title}</h1>}
+                    {hero?.title && (
+                        <h1
+                            class:list={[
+                                'font-display text-5xl font-medium leading-[1.05] tracking-tight text-ink sm:text-7xl',
+                                { 'mt-8': hero?.avatar?.src }
+                            ]}
+                        >
+                            {hero?.title}
+                        </h1>
+                    )}
                     {hero?.text && (
-                        <p class:list={['text-slate-700 sm:text-lg', { 'mt-4': hero?.title, 'mt-6': hero?.avatar?.src && !hero?.title }]}>{hero?.text}</p>
+                        <p
+                            class:list={[
+                                'max-w-2xl text-xl leading-relaxed text-ink/80 sm:text-2xl',
+                                { 'mt-6': hero?.title || hero?.avatar?.src }
+                            ]}
+                        >
+                            {hero?.text}
+                        </p>
                     )}
                     {socialLinks.length > 0 && (
-                        <div class:list={['flex flex-wrap gap-x-4 gap-y-3 justify-center', { 'mt-7': hero?.avatar?.src || hero?.title || hero?.text }]}>
-                            {(siteConfig.socialLinks || []).map((link) => (
-                                <SocialLink {...link} class="bg-white text-slate-700 hover:bg-primary hover:text-white hover:shadow-button" />
+                        <div class:list={['flex flex-wrap gap-x-2 gap-y-3 justify-center', { 'mt-8': hero?.avatar?.src || hero?.title || hero?.text }]}>
+                            {socialLinks.map((link) => (
+                                <SocialLink {...link} class="text-muted hover:text-accent" />
                             ))}
                         </div>
                     )}
