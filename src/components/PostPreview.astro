@@ -6,14 +6,14 @@ const { post } = Astro.props as { post: CollectionEntry<'blog'> };
 const { title, publishDate, updatedDate, featureImage, excerpt, isFeatured } = post.data;
 ---
 
-<article class="post-card mb-12 sm:mb-16">
-    <header class="post-card-header">
-        <div class="mb-2 text-sm uppercase tracking-wider text-slate-500">
+<article class="py-10 border-t border-rule first:border-t-0 first:pt-0 sm:py-12">
+    <header>
+        <div class="mb-3 text-base italic text-muted">
             {
                 isFeatured && (
                     <>
-                        <span class="text-primary">Featured</span>
-                        {' / '}
+                        <span class="text-accent">Featured</span>
+                        {' · '}
                     </>
                 )
             }
@@ -29,45 +29,24 @@ const { title, publishDate, updatedDate, featureImage, excerpt, isFeatured } = p
                 )
             }
         </div>
-        <h2 class="text-3xl font-bold text-slate-900" style={{viewTransitionName: publishDate.toISOString()}}><a href={`/blog/${post.id}/`}>{title}</a></h2>
+        <h2 class="font-display text-3xl font-medium leading-tight tracking-tight text-ink sm:text-4xl" style={{viewTransitionName: publishDate.toISOString()}}>
+            <a class="transition-colors duration-200 hover:text-accent" href={`/blog/${post.id}/`}>{title}</a>
+        </h2>
     </header>
     {
         featureImage?.src && (
-            <figure class="post-card-thumbnail mt-6 mb-6 xl:mb-0">
+            <figure class="mt-6">
                 <a href={`/blog/${post.id}/`}>
-                    <img class="w-full rounded-md" src={featureImage.src} loading="lazy" decoding="async" alt={featureImage.alt || ''} />
+                    <img class="w-full" src={featureImage.src} loading="lazy" decoding="async" alt={featureImage.alt || ''} />
                 </a>
             </figure>
         )
     }
     {
         excerpt && (
-            <div class="post-card-content mt-4">
-                <div class="prose prose-slate max-w-none sm:prose-lg">{excerpt}</div>
+            <div class="mt-5">
+                <div class="prose max-w-none sm:prose-lg">{excerpt}</div>
             </div>
         )
     }
 </article>
-
-<style>
-    @reference "../styles/global.css";
-    @media (min-width: 1280px) {
-        .post-card-header {
-            grid-area: header;
-        }
-        .post-card-content {
-            grid-area: content;
-        }
-        .post-card-thumbnail {
-            grid-area: thumbnail;
-        }
-        .post-card {
-            @apply grid gap-x-8;
-            grid-template-rows: min-content 1fr;
-            grid-template-columns: 1fr 768px 1fr;
-            grid-template-areas:
-                'thumbnail header'
-                'thumbnail content';
-        }
-    }
-</style>

@@ -1,71 +1,60 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
 
+const display = ['Fraunces', ...defaultTheme.fontFamily.serif];
+
 module.exports = {
     theme: {
         extend: {
-            boxShadow: {
-                button: '0 0 1px 6px rgb(var(--color-primary) / 0.175)',
-                avatar: '0 0 1px 11px rgb(var(--color-primary) / 0.15), 0 0 1px 22px rgb(var(--color-primary) / 0.10)'
-            },
             colors: {
-                primary: 'rgb(var(--color-primary))'
+                primary: 'rgb(var(--color-primary))',
+                accent: 'rgb(var(--color-accent))',
+                paper: 'rgb(var(--color-paper))',
+                ink: 'rgb(var(--color-ink))',
+                muted: 'rgb(var(--color-muted))',
+                rule: 'rgb(var(--color-rule))'
             },
             fontFamily: {
-                sans: ['Overpass', ...defaultTheme.fontFamily.sans]
+                serif: ['Newsreader', ...defaultTheme.fontFamily.serif],
+                display
             },
-            typography: (theme) => ({
+            typography: () => ({
                 DEFAULT: {
                     css: {
+                        '--tw-prose-body': 'rgb(var(--color-ink) / 0.88)',
+                        '--tw-prose-headings': 'rgb(var(--color-ink))',
+                        '--tw-prose-lead': 'rgb(var(--color-muted))',
+                        '--tw-prose-links': 'rgb(var(--color-accent))',
+                        '--tw-prose-bold': 'rgb(var(--color-ink))',
+                        '--tw-prose-counters': 'rgb(var(--color-muted))',
+                        '--tw-prose-bullets': 'rgb(var(--color-muted) / 0.6)',
+                        '--tw-prose-hr': 'rgb(var(--color-rule))',
+                        '--tw-prose-quotes': 'rgb(var(--color-ink))',
+                        '--tw-prose-quote-borders': 'rgb(var(--color-accent))',
+                        '--tw-prose-captions': 'rgb(var(--color-muted))',
+                        '--tw-prose-code': 'rgb(var(--color-ink))',
+                        '--tw-prose-pre-code': 'rgb(var(--color-paper))',
+                        '--tw-prose-pre-bg': 'rgb(var(--color-ink))',
+                        '--tw-prose-th-borders': 'rgb(var(--color-rule))',
+                        '--tw-prose-td-borders': 'rgb(var(--color-rule))',
+                        'h1, h2, h3, h4': {
+                            fontFamily: display.join(', '),
+                            fontWeight: 500,
+                            letterSpacing: '-0.01em'
+                        },
                         a: {
-                            color: 'rgb(var(--color-primary))',
+                            textDecorationThickness: '1px',
+                            textUnderlineOffset: '0.2em',
                             '&:hover': {
-                                'text-decoration': 'none'
+                                color: 'rgb(var(--color-ink))'
                             }
                         },
                         blockquote: {
-                            border: 0,
-                            fontSize: '1.3125em',
-                            fontStyle: 'normal',
-                            fontWeight: 600,
-                            lineHeight: 1.4,
-                            paddingLeft: 0,
-                            position: 'relative',
-                            textAlign: 'center',
-                            '&:before': {
-                                backgroundColor: 'rgb(var(--color-primary))',
-                                content: '""',
-                                display: 'block',
-                                height: '3px',
-                                margin: '0 auto 30px',
-                                width: '3.75rem'
-                            },
-                            '&:after': {
-                                backgroundColor: 'rgb(var(--color-primary))',
-                                content: '""',
-                                display: 'block',
-                                height: '3px',
-                                margin: '30px auto 0',
-                                width: '1.875rem'
-                            },
-                            '@media (min-width: 640px)': {
-                                fontSize: '1.66667em',
-                                lineHeight: 1.3
-                            },
-                            '@media (min-width: 1024px)': {
-                                marginLeft: '-6rem',
-                                marginRight: '-6rem'
-                            },
-                            '@media (min-width: 1280px)': {
-                                marginLeft: '-10rem',
-                                marginRight: '-10rem'
-                            }
-                        }
-                    }
-                },
-                lg: {
-                    css: {
-                        blockquote: {
-                            paddingLeft: 0
+                            borderLeftWidth: '2px',
+                            fontFamily: display.join(', '),
+                            fontSize: '1.25em',
+                            fontStyle: 'italic',
+                            fontWeight: 400,
+                            lineHeight: 1.45
                         }
                     }
                 }

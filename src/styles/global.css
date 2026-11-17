@@ -3,7 +3,21 @@
 
 @layer base {
     :root {
-        --color-primary: 101 152 235; /* #6598eb */
+        --color-paper: 250 247 242; /* #faf7f2 warm paper */
+        --color-ink: 31 27 22; /* #1f1b16 */
+        --color-muted: 107 98 88; /* #6b6258 */
+        --color-rule: 228 221 210; /* #e4ddd2 hairlines */
+        --color-accent: 138 43 43; /* #8a2b2b oxblood */
+        --color-primary: var(--color-accent);
+    }
+
+    ::selection {
+        background-color: rgb(var(--color-accent) / 0.15);
+    }
+
+    :focus-visible {
+        outline: 2px solid rgb(var(--color-accent));
+        outline-offset: 3px;
     }
 }
 
@@ -12,5 +26,23 @@
 }
 
 .link:after {
-    color: #6598eb;
+    color: rgb(var(--color-primary));
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        transition-delay: 0s !important;
+        scroll-behavior: auto !important;
+    }
+
+    ::view-transition-group(*),
+    ::view-transition-old(*),
+    ::view-transition-new(*) {
+        animation: none !important;
+    }
 }

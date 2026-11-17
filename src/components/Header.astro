@@ -6,6 +6,9 @@ import RSS from '../icons/RSS.astro';
 const primaryNavLinks = siteConfig.primaryNavLinks || [];
 
 const { class: className } = Astro.props;
+
+const { pathname } = Astro.url;
+const isActive = (href: string) => href === pathname || href === pathname.replace(/\/$/, '');
 ---
 
 <header class:list={['px-4 py-4 flex gap-6 items-center justify-between sm:px-8 sm:py-6', className]}>
@@ -15,35 +18,55 @@ const { class: className } = Astro.props;
                 <img class="max-h-12" src={siteConfig.logo.src} alt={siteConfig.logo.alt || ''} />
             </a>
         ) : (
-            <a class="text-xl font-bold sm:text-2xl" href="/">
+            <a class="font-display text-xl font-medium sm:text-2xl" href="/">
                 {siteConfig.title}
             </a>
         )
     }
     {
         primaryNavLinks.length > 0 && (
-            <nav class="relative">
-                <button
-                    class="menu-toggle w-10 h-10 inline-flex items-center justify-center bg-primary text-white rounded-full relative z-20 transition-shadow duration-300 hover:shadow-button"
-                    aria-label="Open Menu"
-                    aria-expanded="false"
-                    aria-controls="menu-items"
-                >
-                    <span class="menu-toggle-icon w-1 h-1 relative bg-white rounded-full" />
-                </button>
-                <ul id="menu-items" class="menu absolute -top-3 -right-3 px-4 pt-16 pb-2 bg-white/75 border border-white/40 z-10">
-                    {primaryNavLinks.map((link) => (
-                        <li class="mb-1 border-b border-black">
-                            <HeaderNavLink
-                                class="block pr-6 py-1 text-lg text-slate-700 font-bold sm:text-xl relative transition duration-300 hover:text-slate-500"
-                                href={link.href}
-                            >
-                                {link.text === "RSS" ? <RSS role="img" aria-label="RSS feed" /> : link.text}
-                            </HeaderNavLink>
-                        </li>
-                    ))}
-                </ul>
-            </nav>
+            <>
+                <nav class="hidden md:block" aria-label="Primary">
+                    <ul class="flex items-center gap-8">
+                        {primaryNavLinks.map((link) => (
+                            <li>
+                                <a
+                                    class:list={[
+                                        'text-lg transition-colors duration-200 hover:text-accent',
+                                        isActive(link.href) ? 'text-accent underline decoration-1 underline-offset-[6px]' : 'text-ink'
+                                    ]}
+                                    href={link.href}
+                                    aria-current={isActive(link.href) ? 'page' : undefined}
+                                >
+                                    {link.text === 'RSS' ? <RSS class="w-5 h-5" role="img" aria-label="RSS feed" /> : link.text}
+                                </a>
+                            </li>
+                        ))}
+                    </ul>
+                </nav>
+                <nav class="relative md:hidden" aria-label="Primary (mobile)">
+                    <button
+                        class="menu-toggle w-10 h-10 inline-flex items-center justify-center border border-ink text-ink relative z-20 transition-colors duration-200 hover:bg-ink/5"
+                        aria-label="Open Menu"
+                        aria-expanded="false"
+                        aria-controls="menu-items"
+                    >
+                        <span class="menu-toggle-icon w-1 h-1 relative bg-ink rounded-full" />
+                    </button>
+                    <ul id="menu-items" class="menu absolute -top-3 -right-3 px-5 pt-16 pb-3 bg-paper border border-rule z-10">
+                        {primaryNavLinks.map((link) => (
+                            <li class="border-b border-rule last:border-b-0">
+                                <HeaderNavLink
+                                    class="block pr-6 py-2 text-xl font-display text-ink relative transition-colors duration-200 hover:text-accent"
+                                    href={link.href}
+                                >
+                                    {link.text === 'RSS' ? <RSS class="w-5 h-5" role="img" aria-label="RSS feed" /> : link.text}
+                                </HeaderNavLink>
+                            </li>
+                        ))}
+                    </ul>
+                </nav>
+            </>
         )
     }
 </header>
@@ -53,9 +76,7 @@ const { class: className } = Astro.props;
     .menu {
         width: calc(100vw - 0.5rem);
         max-width: 18.75rem;
-        border-radius: 26px;
-        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-        backdrop-filter: blur(5px);
+        box-shadow: 0 12px 32px rgb(var(--color-ink) / 0.08);
         opacity: 0;
         transform: scale(0.6);
         transform-origin: top right;
@@ -85,7 +106,7 @@ const { class: className } = Astro.props;
     }
     .menu-toggle-icon:before,
     .menu-toggle-icon:after {
-        @apply w-1 h-1 absolute left-1/2 top-1/2 bg-white rounded-full -translate-x-1/2 -translate-y-1/2;
+        @apply w-1 h-1 absolute left-1/2 top-1/2 bg-ink rounded-full -translate-x-1/2 -translate-y-1/2;
         content: '';
         transition:
             width 0.25s cubic-bezier(0.4, 0, 0.2, 1),
