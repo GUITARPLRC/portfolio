@@ -68,7 +68,7 @@ if (seo?.image?.src) {
                 )
             }
             <div class="max-w-3xl mx-auto">
-                <div class="prose prose-slate prose-invertsm:prose-lg max-w-none">
+                <div class="prose prose-slate prose-invert sm:prose-lg max-w-none">
                     <Content />
                 </div>
                 <div class="mt-8 flex flex-wrap gap-x-3 text-sm sm:mt-12 sm:text-base">
@@ -77,14 +77,14 @@ if (seo?.image?.src) {
                         class="text-primary transition duration-300 hover:text-slate-200"
                         href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(href)}&text=${encodeURIComponent(title)}`}
                         target="_blank"
-                        rel="noopener noreferer"
+                        rel="noopener noreferrer"
                         aria-label="Share on X">X/Twitter</a
                     >
                     <a
                         class="text-primary transition duration-300 hover:text-slate-200"
                         href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(href)}&summary=${encodeURIComponent(title)}`}
                         target="_blank"
-                        rel="noopener noreferer"
+                        rel="noopener noreferrer"
                         aria-label="Share on LinkedIn">LinkedIn</a
                     >
                 </div>
