@@ -3,16 +3,15 @@ const defaultTheme = require('tailwindcss/defaultTheme');
 const display = ['Fraunces', ...defaultTheme.fontFamily.serif];
 
 module.exports = {
-    content: ['./src/**/*.{astro,html,js,jsx,md,mdx,ts,tsx}'],
     theme: {
         extend: {
             colors: {
-                primary: 'rgb(var(--color-primary) / <alpha-value>)',
-                accent: 'rgb(var(--color-accent) / <alpha-value>)',
-                paper: 'rgb(var(--color-paper) / <alpha-value>)',
-                ink: 'rgb(var(--color-ink) / <alpha-value>)',
-                muted: 'rgb(var(--color-muted) / <alpha-value>)',
-                rule: 'rgb(var(--color-rule) / <alpha-value>)'
+                primary: 'rgb(var(--color-primary))',
+                accent: 'rgb(var(--color-accent))',
+                paper: 'rgb(var(--color-paper))',
+                ink: 'rgb(var(--color-ink))',
+                muted: 'rgb(var(--color-muted))',
+                rule: 'rgb(var(--color-rule))'
             },
             fontFamily: {
                 serif: ['Newsreader', ...defaultTheme.fontFamily.serif],

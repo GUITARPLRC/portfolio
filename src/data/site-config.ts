@@ -9,7 +9,7 @@ export type Link = {
 }
 
 export type SocialLink = Link & {
-	icon: "dev" | "github" | "linkedin"
+	icon: "github" | "linkedin"
 }
 
 export type Hero = {
