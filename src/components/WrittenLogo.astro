@@ -1,0 +1,133 @@
+---
+/**
+ * The site logo, inlined so it can be "written" out with a pen-stroke animation on a visitor's
+ * first page view (once per browser session). Afterwards, and for reduced-motion or no-JS
+ * visitors, it renders as the plain static logo.
+ *
+ * How it works: the brush artwork from public/logo.svg is masked by the pen paths in
+ * src/data/logo-strokes.ts. Each path is dash-animated in turn, so the mask grows along the
+ * letterforms and reveals the real artwork in writing order.
+ */
+import logoSvg from '../../public/logo.svg?raw';
+import { logoStrokes, type Point } from '../data/logo-strokes';
+
+type Props = {
+    alt: string;
+    class?: string;
+};
+
+const { alt, class: className } = Astro.props;
+
+const glyph = logoSvg.match(/\sd="([^"]+)"/)?.[1];
+const glyphFill = logoSvg.match(/\sfill="(?!none)([^"]+)"/)?.[1] ?? 'currentColor';
+const viewBox = logoSvg.match(/viewBox="([^"]+)"/)?.[1] ?? '0 0 212 65';
+const [vbX, vbY, vbWidth, vbHeight] = viewBox.split(/[\s,]+/).map(Number);
+if (!glyph) throw new Error('WrittenLogo: could not find the path data in public/logo.svg');
+
+// Pen speed in viewBox units per second, and the pauses around strokes (seconds).
+const SPEED = 420;
+const MIN_PART = 0.06;
+const PEN_LIFT = 0.08;
+const START_DELAY = 0.2;
+
+/** Smooth a polyline into cubic Béziers (Catmull-Rom) so the pen travels in curves. */
+function toPath(points: Point[]): string {
+    const [first, ...rest] = points;
+    if (rest.length === 1) return `M${first[0]} ${first[1]}L${rest[0][0]} ${rest[0][1]}`;
+    let d = `M${first[0]} ${first[1]}`;
+    for (let i = 0; i < points.length - 1; i++) {
+        const p0 = points[Math.max(i - 1, 0)];
+        const p1 = points[i];
+        const p2 = points[i + 1];
+        const p3 = points[Math.min(i + 2, points.length - 1)];
+        const c1 = [p1[0] + (p2[0] - p0[0]) / 6, p1[1] + (p2[1] - p0[1]) / 6];
+        const c2 = [p2[0] - (p3[0] - p1[0]) / 6, p2[1] - (p3[1] - p1[1]) / 6];
+        d += `C${c1[0].toFixed(2)} ${c1[1].toFixed(2)} ${c2[0].toFixed(2)} ${c2[1].toFixed(2)} ${p2[0]} ${p2[1]}`;
+    }
+    return d;
+}
+
+const polylineLength = (points: Point[]) =>
+    points.slice(1).reduce((sum, p, i) => sum + Math.hypot(p[0] - points[i][0], p[1] - points[i][1]), 0);
+
+// Lay the strokes out on a timeline at constant pen speed.
+let t = START_DELAY;
+const penPaths = logoStrokes.flatMap((stroke, i) => {
+    if (i > 0) t += PEN_LIFT;
+    return stroke.parts.map((points) => {
+        const duration = Math.max(MIN_PART, polylineLength(points) / SPEED);
+        const path = { d: toPath(points), width: stroke.width, delay: t, duration };
+        t += duration;
+        return path;
+    });
+});
+const totalMs = Math.ceil(t * 1000);
+---
+
+<svg
+    id="site-logo"
+    class:list={['written-logo', className]}
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox={viewBox}
+    width={vbWidth}
+    height={vbHeight}
+    role="img"
+    aria-label={alt}
+    data-duration={totalMs}
+>
+    <defs>
+        <mask id="site-logo-mask" maskUnits="userSpaceOnUse" x={vbX} y={vbY} width={vbWidth} height={vbHeight}>
+            <g fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round">
+                {
+                    penPaths.map((p) => (
+                        <path
+                            d={p.d}
+                            stroke-width={p.width}
+                            pathLength="1"
+                            style={`animation-delay:${p.delay.toFixed(3)}s;animation-duration:${p.duration.toFixed(3)}s`}
+                        />
+                    ))
+                }
+            </g>
+        </mask>
+    </defs>
+    <path class="ink" fill={glyphFill} d={glyph} />
+</svg>
+<script is:inline>
+    (() => {
+        const logo = document.getElementById('site-logo');
+        if (!logo) return;
+        // Only write the logo on the first page view of a session; the logo is static otherwise.
+        try {
+            if (sessionStorage.getItem('logo-written')) return;
+            sessionStorage.setItem('logo-written', '1');
+        } catch {
+            return;
+        }
+        if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        logo.classList.add('is-writing');
+        // Drop the mask once done so the finished logo renders exactly like the static one.
+        setTimeout(() => logo.classList.remove('is-writing'), Number(logo.dataset.duration) + 100);
+    })();
+</script>
+
+<style>
+    .written-logo.is-writing .ink {
+        mask: url(#site-logo-mask);
+    }
+    .written-logo mask path {
+        /* Offset just past the full length so no round cap shows before a stroke starts. */
+        stroke-dasharray: 1 2;
+        stroke-dashoffset: 1.001;
+    }
+    .written-logo.is-writing mask path {
+        animation-name: logo-write;
+        animation-timing-function: cubic-bezier(0.45, 0.05, 0.55, 0.95);
+        animation-fill-mode: both;
+    }
+    @keyframes logo-write {
+        to {
+            stroke-dashoffset: 0;
+        }
+    }
+</style>

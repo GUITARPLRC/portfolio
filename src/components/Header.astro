@@ -1,5 +1,6 @@
 ---
 import HeaderNavLink from './HeaderNavLink.astro';
+import WrittenLogo from './WrittenLogo.astro';
 import siteConfig from '../data/site-config.ts';
 import RSS from '../icons/RSS.astro';
 import ThemeToggle from './ThemeToggle.astro';
@@ -16,7 +17,7 @@ const isActive = (href: string) => href === pathname || href === pathname.replac
     {
         siteConfig.logo && siteConfig.logo?.src ? (
             <a href="/">
-                <img class="max-h-12 dark:invert" src={siteConfig.logo.src} alt={siteConfig.logo.alt || ''} />
+                <WrittenLogo class="h-12 w-auto dark:invert" alt={siteConfig.logo.alt || siteConfig.title} />
             </a>
         ) : (
             <a class="font-display text-xl font-medium sm:text-2xl" href="/">
