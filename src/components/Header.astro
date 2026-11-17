@@ -3,6 +3,7 @@ import HeaderNavLink from './HeaderNavLink.astro';
 import WrittenLogo from './WrittenLogo.astro';
 import siteConfig from '../data/site-config.ts';
 import RSS from '../icons/RSS.astro';
+import ThemeToggle from './ThemeToggle.astro';
 
 const primaryNavLinks = siteConfig.primaryNavLinks || [];
 
@@ -16,7 +17,7 @@ const isActive = (href: string) => href === pathname || href === pathname.replac
     {
         siteConfig.logo && siteConfig.logo?.src ? (
             <a href="/">
-                <WrittenLogo class="h-12 w-auto" alt={siteConfig.logo.alt || siteConfig.title} />
+                <WrittenLogo class="h-12 w-auto dark:invert" alt={siteConfig.logo.alt || siteConfig.title} />
             </a>
         ) : (
             <a class="font-display text-xl font-medium sm:text-2xl" href="/">
@@ -24,6 +25,7 @@ const isActive = (href: string) => href === pathname || href === pathname.replac
             </a>
         )
     }
+    <div class="flex items-center gap-4 md:gap-8">
     {
         primaryNavLinks.length > 0 && (
             <>
@@ -70,6 +72,8 @@ const isActive = (href: string) => href === pathname || href === pathname.replac
             </>
         )
     }
+    <ThemeToggle />
+    </div>
 </header>
 
 <style>
