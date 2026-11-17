@@ -11,7 +11,7 @@ const socialLinks = siteConfig.socialLinks || [];
         <>
             {hero?.backgroundImage?.src && (
                 <div
-                    class="absolute inset-0 bg-cover bg-center opacity-10 grayscale mix-blend-multiply"
+                    class="absolute inset-0 bg-cover bg-center opacity-10 grayscale mix-blend-multiply pointer-events-none"
                     style={{ backgroundImage: `url(${hero?.backgroundImage?.src})` }}
                 />
             )}
